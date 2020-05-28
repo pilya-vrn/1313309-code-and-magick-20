@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Илья Савин](https://up.htmlacademy.ru/javascript/20/user/1313309).
-* Наставник: `Неизвестно`.
+* Наставник: Андрей Устименко.
 
 ---
 
