@@ -22,12 +22,14 @@ var getMaxElement = function (arr) {
   return Math.max.apply(null, arr);
 };
 
-var getColorBar = function (ctx, players, i) {
-  ctx.fillStyle = 'hsl(240,' + Math.round(Math.random() * 100) + '%, 50%)';
+var getRandomColor = function (players, i) {
+  var color = 'hsl(240,' + Math.round(Math.random() * 100) + '%, 50%)';
 
   if (players[i] === 'Вы') {
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    color = 'rgba(255, 0, 0, 1)';
   }
+
+  return color;
 };
 
 var renderBar = function (ctx, players, times, i) {
@@ -52,7 +54,7 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillText('Список результатов:', CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP + FONT_GAP / 4);
 
   for (var i = 0; i < players.length; i++) {
-    getColorBar(ctx, players, i);
+    ctx.fillStyle = getRandomColor(players, i);
     renderBar(ctx, players, times, i);
     renderText(ctx, players, times, i);
   }
