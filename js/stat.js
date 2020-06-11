@@ -24,9 +24,11 @@ var getMaxElement = function (arr) {
 
 var getRandomColorBar = function (ctx, players, i) {
   ctx.fillStyle = 'hsl(240,' + Math.round(Math.random() * 100) + '%, 50%)';
+
   if (players[i] === 'Вы') {
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
   }
+
 };
 
 var renderBar = function (ctx, players, times, i) {
