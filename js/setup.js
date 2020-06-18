@@ -106,7 +106,7 @@ wizardEyes.addEventListener('click', function () {
 });
 
 fireball.addEventListener('click', function () {
-  fireball.style.fill = FIREBALL_COLORS[Math.floor(Math.random() * FIREBALL_COLORS.length)];
-  setupWizardForm.querySelector('input[name="fireball-color"]').value = fireball.style.fill;
-  console.log(setupWizardForm.querySelector('input[name="fireball-color"]'));
+  var fireballColor = FIREBALL_COLORS[Math.floor(Math.random() * FIREBALL_COLORS.length)];
+  fireball.style.backgroundColor = fireballColor;
+  setupWizardForm.querySelector('input[name="fireball-color"]').value = fireballColor;
 });
