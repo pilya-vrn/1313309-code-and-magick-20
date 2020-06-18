@@ -9,6 +9,13 @@ userDialog.classList.remove('hidden');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template');
 var setupSimilarItem = similarWizardTemplate.content.querySelector('.setup-similar-item');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = userDialog.querySelector('.setup-close');
+var setupWizardForm = userDialog.querySelector('.setup-wizard-form');
+var setupWizard = setupWizardForm.querySelector('.setup-player');
+var wizardCoat = setupWizard.querySelector('.wizard-coat');
+var wizardEyes = setupWizard.querySelector('.wizard-eyes');
+var fireball = setupWizard.querySelector('.setup-fireball-wrap');
 
 var createWizards = function (amount) {
   var wizards = [];
@@ -48,14 +55,7 @@ var renderWizards = function (wizards) {
 
 renderWizards(wizardsList);
 
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = userDialog.querySelector('.setup-close');
-var setupWizardForm = userDialog.querySelector('.setup-wizard-form');
-var setupWizard = setupWizardForm.querySelector('.setup-player');
-var wizardCoat = setupWizard.querySelector('.wizard-coat');
-var wizardEyes = setupWizard.querySelector('.wizard-eyes');
-var fireball = setupWizard.querySelector('.setup-fireball-wrap');
-
+// создание мага и отправка формы
 var onPopupEscPress = function (evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
