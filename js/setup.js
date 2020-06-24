@@ -67,71 +67,61 @@ renderWizards(wizardsList);
 var onPopupEscPress = function (evt) {
   if (evt.key === 'Escape' && evt.target !== wizardNameTarget) {
     evt.preventDefault();
-    closePopup();
+    closePopupOnClick();
   }
 };
 
-var openPopup = function () {
+var openPopupOnClick = function () {
   userDialog.classList.remove('hidden');
 
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-var closePopup = function () {
+var closePopupOnClick = function () {
   userDialog.classList.add('hidden');
 
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function () {
-  openPopup();
-});
+setupOpen.addEventListener('click', openPopupOnClick);
 
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.key === 'Enter') {
-    openPopup();
+    openPopupOnClick();
   }
 });
 
-setupClose.addEventListener('click', function () {
-  closePopup();
-});
+setupClose.addEventListener('click', closePopupOnClick);
 
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.key === 'Enter') {
-    closePopup();
+    closePopupOnClick();
   }
 });
 
 var wizardCoatChanger = function () {
-  var wizardCoatStyle = getRandomValue(COAT_COLORS);
+  var wizardCoatColor = getRandomValue(COAT_COLORS);
 
-  wizardCoat.style.fill = wizardCoatStyle;
-  setupWizardForm.querySelector('input[name="coat-color"]').value = wizardCoat.style.fill;
+  wizardCoat.style.fill = wizardCoatColor;
+  setupWizardForm.querySelector('input[name="coat-color"]').value = wizardCoatColor;
 };
 
 var wizardEyesChanger = function () {
-  var wizardEyesStyle = getRandomValue(EYES_COLORS);
+  var wizardEyesColor = getRandomValue(EYES_COLORS);
 
-  wizardEyes.style.fill = wizardEyesStyle;
-  setupWizardForm.querySelector('input[name="eyes-color"]').value = wizardEyes.style.fill;
+  wizardEyes.style.fill = wizardEyesColor;
+  setupWizardForm.querySelector('input[name="eyes-color"]').value = wizardEyesColor;
 };
 
 var fireballChanger = function () {
-  var fireballStyle = getRandomValue(FIREBALL_COLORS);
+  var fireballColor = getRandomValue(FIREBALL_COLORS);
 
-  fireball.style.backgroundColor = fireballStyle;
-  setupWizardForm.querySelector('input[name="fireball-color"]').value = fireballStyle;
+  fireball.style.backgroundColor = fireballColor;
+  setupWizardForm.querySelector('input[name="fireball-color"]').value = fireballColor;
 };
 
-wizardCoat.addEventListener('click', function () {
-  wizardCoatChanger();
-});
+wizardCoat.addEventListener('click', wizardCoatChanger);
 
-wizardEyes.addEventListener('click', function () {
-  wizardEyesChanger();
-});
+wizardEyes.addEventListener('click', wizardEyesChanger);
 
-fireball.addEventListener('click', function () {
-  fireballChanger();
-});
+fireball.addEventListener('click', fireballChanger);
