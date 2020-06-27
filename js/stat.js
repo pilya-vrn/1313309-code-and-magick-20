@@ -13,7 +13,6 @@
   var barHeight = CLOUD_HEIGHT - GAP - FONT_GAP - GAP;
   var barHeightMax = 150;
 
-
   var renderCloud = function (ctx, x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
@@ -41,6 +40,7 @@
 
   var renderText = function (ctx, players, times, i) {
     var maxTime = getMaxElement(times);
+
     ctx.fillStyle = PRINT_COLOR;
     ctx.fillText(players[i], CLOUD_X + 2 * GAP + (BAR_WIDTH + 2 * GAP) * i, CLOUD_HEIGHT - GAP / 2);
     ctx.fillText(Math.round(times[i]), CLOUD_X + 2 * GAP + (BAR_WIDTH + 2 * GAP) * i,

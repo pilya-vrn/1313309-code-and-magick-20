@@ -1,11 +1,11 @@
 'use strict';
 
-var userDialog = document.querySelector('.setup');
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = userDialog.querySelector('.setup-close');
-var wizardNameTarget = document.querySelector('.setup-user-name');
-
 (function () {
+  var userDialog = document.querySelector('.setup');
+  var setupOpen = document.querySelector('.setup-open');
+  var setupClose = userDialog.querySelector('.setup-close');
+  var wizardNameTarget = document.querySelector('.setup-user-name');
+
   var onPopupEscPress = function (evt) {
     if (evt.key === 'Escape' && evt.target !== wizardNameTarget) {
       evt.preventDefault();
@@ -34,14 +34,9 @@ var wizardNameTarget = document.querySelector('.setup-user-name');
   });
 
   setupClose.addEventListener('click', closePopupOnClick);
-
   setupClose.addEventListener('keydown', function (evt) {
     if (evt.key === 'Enter') {
       closePopupOnClick();
     }
   });
-  window.dialog = {
-    onPopupEscPress: onPopupEscPress,
-    userDialog: userDialog
-  };
 })();

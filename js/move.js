@@ -4,14 +4,13 @@
   var setupElement = document.querySelector('.setup');
   var dialogHandle = setupElement.querySelector('.upload');
 
-  dialogHandle.addEventListener('mousedown', function (evt) {
+  var dialogMover = function (evt) {
     evt.preventDefault();
 
     var startCoords = {
       x: evt.clientX,
       y: evt.clientY
     };
-
     var dragged = false;
 
     var onMouseMove = function (moveEvt) {
@@ -50,5 +49,7 @@
 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
-  });
+  };
+
+  dialogHandle.addEventListener('mousedown', dialogMover);
 })();
