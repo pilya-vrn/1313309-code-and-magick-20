@@ -59,7 +59,7 @@
     FIREBALL_COLORS: FIREBALL_COLORS,
     COAT_COLORS: COAT_COLORS,
     EYES_COLORS: EYES_COLORS,
-    getRandomValue: getRandomValue,
+    getRandomValue: getRandomValue
   };
 })();
 

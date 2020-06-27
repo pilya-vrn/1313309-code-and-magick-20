@@ -12,21 +12,21 @@
   var inputFireballColor = setupWizardForm.querySelector('input[name="fireball-color"]');
 
   var wizardCoatChanger = function () {
-    var wizardCoatColor = window.getRandomValue(window.COAT_COLORS);
+    var wizardCoatColor = window.setup.getRandomValue(window.setup.COAT_COLORS);
 
     wizardCoat.style.fill = wizardCoatColor;
     inputCoatColor.value = wizardCoatColor;
   };
 
   var wizardEyesChanger = function () {
-    var wizardEyesColor = window.getRandomValue(window.EYES_COLORS);
+    var wizardEyesColor = window.setup.getRandomValue(window.setup.EYES_COLORS);
 
     wizardEyes.style.fill = wizardEyesColor;
     inputEyesColor.value = wizardEyesColor;
   };
 
   var fireballChanger = function () {
-    var fireballColor = window.getRandomValue(window.FIREBALL_COLORS);
+    var fireballColor = window.setup.getRandomValue(window.setup.FIREBALL_COLORS);
 
     fireball.style.backgroundColor = fireballColor;
     inputFireballColor.value = fireballColor;
