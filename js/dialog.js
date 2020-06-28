@@ -25,18 +25,21 @@
     document.removeEventListener('keydown', onPopupEscPress);
   };
 
-  setupOpen.addEventListener('click', openPopupOnClick);
-
-  setupOpen.addEventListener('keydown', function (evt) {
+  var onEnterClickSetupOpener = function (evt) {
     if (evt.key === 'Enter') {
       openPopupOnClick();
     }
-  });
+  };
 
-  setupClose.addEventListener('click', closePopupOnClick);
-  setupClose.addEventListener('keydown', function (evt) {
+  var onEnterClickSetupCloser = function (evt) {
     if (evt.key === 'Enter') {
       closePopupOnClick();
     }
-  });
+  };
+
+  setupOpen.addEventListener('click', openPopupOnClick);
+  setupOpen.addEventListener('keydown', onEnterClickSetupOpener);
+
+  setupClose.addEventListener('click', closePopupOnClick);
+  setupClose.addEventListener('keydown', onEnterClickSetupCloser);
 })();
