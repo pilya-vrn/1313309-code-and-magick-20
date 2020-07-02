@@ -4,6 +4,7 @@
   var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
   var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+  var MAX_SIMILAR_WIZARD_COUNT = 4;
 
   var userDialog = document.querySelector('.setup');
   userDialog.classList.remove('hidden');
@@ -16,7 +17,7 @@
     return arr[random];
   };
 
-  var createWizards = function (amount) {
+  /* var createWizards = function (amount) {
     var wizards = [];
     var wizardsName = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
     var wizardsSurname = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -55,6 +56,36 @@
   };
 
   renderWizards(wizardsList);
+  */
+
+  var renderWizard = function (wizards) {
+    var wizardElement = setupSimilarItem.cloneNode(true);
+    wizardElement.querySelector('.setup-similar-label').textContent = wizards.name;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizards.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizards.colorEyes;
+
+    return wizardElement;
+  };
+
+  var successHandler = function (wizards) {
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < MAX_SIMILAR_WIZARD_COUNT; i++) {
+      fragment.appendChild(renderWizard(wizards[i]));
+    }
+    similarListElement.appendChild(fragment);
+  };
+
+  userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+  window.backend.load(successHandler, window.backend.errorHandler);
+
+  var form = userDialog.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function () {
+      userDialog.classList.add('hidden');
+    });
+    evt.preventDefault();
+  });
   window.setup = {
     FIREBALL_COLORS: FIREBALL_COLORS,
     COAT_COLORS: COAT_COLORS,
