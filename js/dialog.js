@@ -43,8 +43,8 @@
   setupClose.addEventListener('click', closePopupOnClick);
   setupClose.addEventListener('keydown', onEnterClickSetupCloser);
 
-  var setupElement = document.querySelector('.setup');
-  var dialogHandle = setupElement.querySelector('.upload');
+
+  var dialogHandle = userDialog.querySelector('.upload');
 
   var dialogMover = function (evt) {
     evt.preventDefault();
@@ -70,8 +70,8 @@
         y: moveEvt.clientY
       };
 
-      setupElement.style.top = (setupElement.offsetTop - shift.y) + 'px';
-      setupElement.style.left = (setupElement.offsetLeft - shift.x) + 'px';
+      userDialog.style.top = (userDialog.offsetTop - shift.y) + 'px';
+      userDialog.style.left = (userDialog.offsetLeft - shift.x) + 'px';
     };
 
     var onMouseUp = function (upEvt) {
