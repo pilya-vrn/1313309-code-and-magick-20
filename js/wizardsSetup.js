@@ -60,9 +60,11 @@
 
   var successHandler = function (wizards) {
     var fragment = document.createDocumentFragment();
+
     for (var i = 0; i < MAX_SIMILAR_WIZARD_COUNT; i++) {
       fragment.appendChild(renderWizard(wizards[i]));
     }
+
     similarListElement.appendChild(fragment);
   };
 
